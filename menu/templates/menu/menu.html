@@ -1,0 +1,46 @@
+<ul class="tree-menu-list">
+    <!-- для каждого из переданных элементов меню -->
+    {% for item in items %}
+
+        <!-- добавляем элемент списка с ссылкой и именем -->
+        {% if selected_item_id == item.id %}
+            <li class="tree-menu-item selected">
+                {% if item.child_items %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                {% endif %}
+                <a class="link" href="?{{ other_urlstring }}&{{ menu }}={{ item.id }}">
+                    {{ item.name|title }}
+                </a>
+            </li>
+        {% else %}
+            <li class="tree-menu-item">
+                {% if item.child_items %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                {% endif %}
+                <a class="link" href="?{{ other_urlstring }}&{{ menu }}={{ item.id }}">
+                    {{ item.name|title }}
+                </a>
+            </li>
+        {% endif %}
+        
+        <!-- а если у него записаны дочерние элементы меню -->
+        {% if item.child_items %}
+            <!-- вставляем сюда тот же шаблон, изменяя элементы на дочерние -->
+            {% include 'menu/menu.html' with items=item.child_items %}
+        {% endif %}
+
+    {% endfor %}
+</ul>
+

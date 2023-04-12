@@ -1,0 +1,29 @@
+body { 
+    background: #F3F5F9; 
+}
+
+.fa-heart {
+    position: fixed;
+    color: royalblue;
+    top: 7rem;
+    left: 21rem;
+    font-size: 250px;
+    height: 100px;
+    width:100px;
+    animation: pulse 2s linear infinite;
+}
+  
+@keyframes pulse {
+    0%{
+      transform: scale(1);
+      opacity: 0;
+    }
+    50%{
+      transform: scale(1.3);
+      opacity:1;
+    }
+    100%{
+      transform: scale(1);
+      opacity:0;
+    }
+}

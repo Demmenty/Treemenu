@@ -1,0 +1,56 @@
+.tree-menu-container {
+    background-color: white;
+    width: fit-content;
+    min-width: 240px;
+    border-radius: 5px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+    -moz-box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+    -webkit-box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+}
+
+.tree-menu-header {
+    background-color: royalblue;
+    color: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 5px;
+}
+.tree-menu-header h4 {
+    margin-bottom: 0;
+    margin-left: 1.25rem;
+}
+
+.tree-menu-content {
+    padding: 0.5rem;
+    padding-right: 1.5rem;
+}
+
+.tree-menu-list {
+    margin-bottom: 0;
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.tree-menu-item {
+    display: flex;
+}
+.tree-menu-item svg {
+    align-self: center;
+    margin-right: 5px;
+}
+
+.tree-menu-item .link {
+    display: block;
+    color: dimgrey;
+    text-decoration: none;
+    font-weight: 500;
+}
+.tree-menu-item.selected .link {
+    color: royalblue;
+}
+.tree-menu-item .link:hover {
+    cursor: pointer;
+    color: royalblue;
+}
